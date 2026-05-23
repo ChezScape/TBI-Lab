@@ -1,13 +1,13 @@
 "use strict";
 
 /**
- * DESKTOP POLISH GUARD v4.11a4
+ * DESKTOP POLISH GUARD v4.11a5
  *
  * Small runtime helper for the desktop-only polish pass.
  * It does not route actions and does not touch mobile behaviour.
  */
 (function () {
-    const VERSION = "v4.11a4";
+    const VERSION = "v4.11a5";
     const FLAG = "__TowerBattleIntelDesktopPolishGuardBound";
     const DESKTOP_MIN_WIDTH = 800;
 

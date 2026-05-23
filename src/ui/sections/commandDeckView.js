@@ -7,20 +7,20 @@ export function buildCommandDeckView(state = {}) {
     const activeBuild = state.ui?.buildStyle || "unknown";
 
     return `
-        <div class="tbi-command-view desktop-command-polish desktop-command-dedup">
+        <div class="tbi-command-view desktop-command-polish desktop-command-dedup desktop-command-layout-a5">
             <section class="tbi-card tbi-command-card tbi-command-flow">
                 <div class="tbi-card-heading compact-heading">
                     <div>
                         <h2>Command Deck</h2>
-                        <p>Desktop command hub. Use these shortcuts for navigation, import, export, and diagnostics. The Battle Report Input console stays below this deck.</p>
+                        <p>Desktop command hub. Shortcuts, current state, then the Battle Report Input console below.</p>
                     </div>
                     <span class="tbi-command-mode-pill">Desktop</span>
                 </div>
 
                 <div class="tbi-command-steps command-shortcut-steps">
-                    ${commandStep("1", "Review data", "Check loaded runs and current history count.")}
-                    ${commandStep("2", "Manage history", "Open History, import JSON, or export saved runs.")}
-                    ${commandStep("3", "Paste below", "Use the Battle Report Input console underneath for Save, Build, Clear Input, and Clear Runs.")}
+                    ${commandStep("1", "Review data", "Check loaded runs and history count.")}
+                    ${commandStep("2", "Manage history", "Open, import, or export saved runs.")}
+                    ${commandStep("3", "Paste below", "Paste reports underneath. Save, Build, and Clear live there.")}
                 </div>
 
                 <div class="tbi-command-actions desktop-command-actions desktop-command-shortcuts" aria-label="Command deck shortcuts">
@@ -31,7 +31,7 @@ export function buildCommandDeckView(state = {}) {
                 </div>
 
                 <div class="tbi-command-note">
-                    Input actions are not duplicated here. Save Report, Build, Clear Input, and Clear Runs live in the Battle Report Input console below.
+                    Input actions stay below in one place: Save Report, Build, Clear Input, and Clear Runs.
                 </div>
             </section>
 

@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * DEVICE MODE v4.11a4
+ * DEVICE MODE v4.11a5
  * Owns desktop/mobile detection and stylesheet switching.
  *
  * Rules:

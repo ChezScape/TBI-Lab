@@ -1,8 +1,8 @@
-# Tower Battle Intel v4.11a4 Desktop Polish
+# Tower Battle Intel v4.11a5 Desktop Polish
 
 ## Purpose
 
-Desktop-only presentation polish after the v4.11a4 desktop lock and v4.11a4 stability check.
+Desktop-only presentation polish after the v4.11a5 desktop lock and v4.11a5 stability check.
 
 The goal is to keep the same mockup look but make three desktop areas more usable:
 
@@ -45,7 +45,7 @@ TowerBattleIntelDesktopPolishGuard?.status()
 TowerBattleIntelNativeControls?.status()
 ```
 
-Expected version: `v4.11a4`.
+Expected version: `v4.11a5`.
 
 ## Protected baseline rule
 

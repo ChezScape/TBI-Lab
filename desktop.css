@@ -1874,7 +1874,7 @@ details[open] > summary,
 
 
 /* --------------------------------------------------
-   v4.11a4 Desktop Polish: History / Systems / Command Deck
+   v4.11a5 Desktop Polish: History / Systems / Command Deck
    Desktop-only visual tightening. Mobile repair remains reserved for v4.11b.
 -------------------------------------------------- */
 html[data-device-mode="desktop"] [data-device-only="mobile"],
@@ -2174,7 +2174,7 @@ html.desktop-polish .desktop-command-status .tbi-mini-stat {
 }
 
 /* --------------------------------------------------
-   v4.11a4 Command Deck Input Placement
+   v4.11a5 Command Deck Input Placement
    Desktop only: keep the header/nav and Command Deck panel first, then show the
    native Battle Report Input console underneath. Mobile repair remains separate.
 -------------------------------------------------- */
@@ -2204,7 +2204,7 @@ html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .tbi-command
 }
 
 /* --------------------------------------------------
-   v4.11a4 Command Deck Dedup
+   v4.11a5 Command Deck Dedup
    Desktop only: top Command Deck now uses useful shortcuts only. The duplicate
    Save/Clear controls remain only in the Battle Report Input console below.
 -------------------------------------------------- */
@@ -2229,4 +2229,173 @@ html[data-device-mode="desktop"] .desktop-command-shortcuts button:hover {
 html.desktop-polish .command-shortcut-steps .tbi-command-step,
 html[data-device-mode="desktop"] .command-shortcut-steps .tbi-command-step {
     min-height: 66px;
+}
+
+/* --------------------------------------------------
+   v4.11a5 Command Deck Layout Cleanup
+   Desktop only: one shared logical grid. Top row is Command Deck + Current Data;
+   Battle Report Input sits below and aligns to the same outer edges.
+-------------------------------------------------- */
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .layout {
+    width: min(1600px, calc(100% - 32px));
+    padding-inline: 0;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .tbi-desktop-workspace,
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .wa-dashboard-shell,
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .wa-dashboard-panel.active {
+    width: 100%;
+    max-width: 1600px;
+    margin-inline: auto;
+}
+
+html[data-device-mode="desktop"] .tbi-command-view.desktop-command-layout-a5,
+html.desktop-polish .tbi-command-view.desktop-command-layout-a5 {
+    width: 100%;
+    max-width: 1600px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+    gap: 12px;
+    align-items: stretch;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-card,
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-status,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-card,
+html.desktop-polish .desktop-command-layout-a5 .desktop-command-status {
+    min-width: 0;
+    min-height: 0;
+    padding: 13px 14px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-card-heading,
+html.desktop-polish .desktop-command-layout-a5 .tbi-card-heading {
+    margin-bottom: 8px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-card-heading p,
+html.desktop-polish .desktop-command-layout-a5 .tbi-card-heading p {
+    max-width: 880px;
+    margin: 4px 0 0;
+    line-height: 1.35;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-steps,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 8px 0 10px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-step,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-step {
+    min-height: 58px;
+    padding: 8px 9px;
+    grid-template-columns: 28px minmax(0, 1fr);
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-step span,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-step span {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-step strong,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-step strong {
+    font-size: 10px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-step em,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-step em {
+    font-size: 11px;
+    line-height: 1.25;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-actions,
+html.desktop-polish .desktop-command-layout-a5 .desktop-command-actions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-shortcuts button,
+html.desktop-polish .desktop-command-layout-a5 .desktop-command-shortcuts button {
+    min-height: 36px;
+    padding-block: 8px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-note,
+html.desktop-polish .desktop-command-layout-a5 .tbi-command-note {
+    margin-top: 8px;
+    padding: 7px 9px;
+    font-size: 11px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-stats,
+html.desktop-polish .desktop-command-layout-a5 .desktop-command-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-status .tbi-mini-stat,
+html.desktop-polish .desktop-command-layout-a5 .desktop-command-status .tbi-mini-stat {
+    min-height: 48px;
+    padding: 8px 10px;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section {
+    width: min(1600px, calc(100% - 32px));
+    max-width: 1600px;
+    margin: 14px auto 28px;
+    padding: 13px 14px 14px;
+    gap: 10px;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section .input-header {
+    display: grid;
+    gap: 3px;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section .section-subtitle {
+    max-width: 1120px;
+    line-height: 1.35;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section #input {
+    min-height: 108px;
+    max-height: 210px;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section .input-actions {
+    gap: 10px;
+}
+
+@media (min-width: 1500px) {
+    html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section #input {
+        min-height: 118px;
+    }
+}
+
+@media (max-width: 1180px) {
+    html[data-device-mode="desktop"] .tbi-command-view.desktop-command-layout-a5,
+    html.desktop-polish .tbi-command-view.desktop-command-layout-a5 {
+        grid-template-columns: 1fr;
+    }
+
+    html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-stats,
+    html.desktop-polish .desktop-command-layout-a5 .desktop-command-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 980px) {
+    html[data-device-mode="desktop"] .desktop-command-layout-a5 .tbi-command-steps,
+    html.desktop-polish .desktop-command-layout-a5 .tbi-command-steps,
+    html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-actions,
+    html.desktop-polish .desktop-command-layout-a5 .desktop-command-actions,
+    html[data-device-mode="desktop"] .desktop-command-layout-a5 .desktop-command-stats,
+    html.desktop-polish .desktop-command-layout-a5 .desktop-command-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }

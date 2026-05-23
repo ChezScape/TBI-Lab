@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * NATIVE CONTROL GUARD v4.11a4
+ * NATIVE CONTROL GUARD v4.11a5
  *
  * Purpose:
  * The dashboard has several capture-phase bridges. Those are good for custom
@@ -14,7 +14,7 @@
  */
 
 const GUARD_FLAG = "__TowerBattleIntelNativeControlGuardBound";
-const VERSION = "v4.11a4";
+const VERSION = "v4.11a5";
 
 let lastNativeGuardEvent = null;
 
