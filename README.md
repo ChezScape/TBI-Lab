@@ -1,6 +1,6 @@
-# Tower Battle Intel v4.11a2
+# Tower Battle Intel v4.11a3
 
-Current working line: **v4.11a2 Desktop Polish Full Build**.
+Current working line: **v4.11a3 Desktop Polish Full Build**.
 
 This project is a local/browser-based Battle Report Intelligence Dashboard.
 
@@ -32,13 +32,13 @@ TowerBattleIntelDesktopPolishGuard?.status()
 TowerBattleIntelNativeControls?.status()
 ```
 
-Expected version: `v4.11a2`.
+Expected version: `v4.11a3`.
 
 ## Current tests
 
 ```powershell
-node .\tests\current-v4.11a2-checkpoint.test.mjs
-node .\tests\current-v4.11a2-desktop-polish.test.mjs
+node .\tests\current-v4.11a3-checkpoint.test.mjs
+node .\tests\current-v4.11a3-desktop-polish.test.mjs
 node .\tests\diagnostics-foundation.test.mjs
 node .\tests\pipeline-foundation.test.mjs
 node .\tests\report-parser-game-brain.test.mjs

@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * PLATFORM ISOLATION GUARD v4.11a2
+ * PLATFORM ISOLATION GUARD v4.11a3
  *
  * Desktop-first platform lock for the v4.11 cleanup line.
  *
@@ -10,7 +10,7 @@
  * repaired separately.
  */
 (function () {
-    const VERSION = "v4.11a2";
+    const VERSION = "v4.11a3";
     const DESKTOP_MIN_WIDTH = 800;
     const TOUCH_MOBILE_LIMIT = 1024;
     const STYLESHEET_ID = "towerBattleIntelStylesheet";

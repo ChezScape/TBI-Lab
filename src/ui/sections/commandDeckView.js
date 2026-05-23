@@ -12,13 +12,13 @@ export function buildCommandDeckView(state = {}) {
                 <div class="tbi-card-heading compact-heading">
                     <div>
                         <h2>Command Deck</h2>
-                        <p>Desktop report workflow. The input console stays above the nav; this deck controls and verifies what happens next.</p>
+                        <p>Desktop report workflow. The Battle Report Input console now opens below this deck, keeping the header and nav in a normal place.</p>
                     </div>
                     <span class="tbi-command-mode-pill">Desktop</span>
                 </div>
 
                 <div class="tbi-command-steps">
-                    ${commandStep("1", "Paste report", "Use the Battle Report Input console above.")}
+                    ${commandStep("1", "Paste report", "Use the Battle Report Input console below this deck.")}
                     ${commandStep("2", "Choose build", `Current build: ${formatBuild(activeBuild)}.`)}
                     ${commandStep("3", "Save or clear", "Save to History, clear the input, or reset loaded runs.")}
                 </div>

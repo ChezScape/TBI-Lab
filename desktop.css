@@ -1874,7 +1874,7 @@ details[open] > summary,
 
 
 /* --------------------------------------------------
-   v4.11a2 Desktop Polish: History / Systems / Command Deck
+   v4.11a3 Desktop Polish: History / Systems / Command Deck
    Desktop-only visual tightening. Mobile repair remains reserved for v4.11b.
 -------------------------------------------------- */
 html[data-device-mode="desktop"] [data-device-only="mobile"],
@@ -2171,4 +2171,34 @@ html.desktop-polish .desktop-command-status .tbi-mini-stat {
     html.desktop-polish .desktop-command-stats {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+}
+
+/* --------------------------------------------------
+   v4.11a3 Command Deck Input Placement
+   Desktop only: keep the header/nav and Command Deck panel first, then show the
+   native Battle Report Input console underneath. Mobile repair remains separate.
+-------------------------------------------------- */
+html[data-device-mode="desktop"] #app {
+    display: flex;
+    flex-direction: column;
+}
+
+html[data-device-mode="desktop"] .layout {
+    order: 20;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-section {
+    order: 30;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+html[data-device-mode="desktop"] #debugPanel,
+html[data-device-mode="desktop"] #debug {
+    order: 40;
+}
+
+html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .tbi-command-note {
+    border-color: rgba(29,231,255,.24);
+    color: var(--soft);
 }

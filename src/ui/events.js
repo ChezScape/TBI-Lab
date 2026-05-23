@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * UI EVENTS v4.11a2
+ * UI EVENTS v4.11a3
  * One delegated UI bridge. No per-render rebinding for visible buttons.
  */
 
