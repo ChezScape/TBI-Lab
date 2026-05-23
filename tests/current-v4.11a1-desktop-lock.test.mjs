@@ -12,9 +12,9 @@ const deviceMode = read("./src/ui/deviceMode.js");
 const desktopCss = read("./desktop.css");
 const mobileCss = read("./mobile.css");
 
-assert.match(config, /version:\s*"v4\.11a"/);
-assert.match(app, /APP ENTRY v4\.11a/);
-assert.match(bootstrap, /BOOTSTRAP v4\.11a/);
+assert.match(config, /version:\s*"v4\.11a1"/);
+assert.match(app, /APP ENTRY v4\.11a1/);
+assert.match(bootstrap, /BOOTSTRAP v4\.11a1/);
 
 assert.match(index, /platformIsolationGuard\.js/);
 assert.match(index, /src="\.\/src\/ui\/universalDownloadBridge\.js"/);
@@ -24,13 +24,13 @@ assert.ok(index.indexOf("platformIsolationGuard.js") < index.indexOf("app.js"), 
 assert.ok(index.indexOf("universalDownloadBridge.js") < index.indexOf("app.js"), "download bridge should load before app.js");
 assert.ok(index.indexOf("historySearchFocusGuard.js") < index.indexOf("app.js"), "history search guard should load before app.js");
 
-assert.match(platformGuard, /PLATFORM ISOLATION GUARD v4\.11a/);
+assert.match(platformGuard, /PLATFORM ISOLATION GUARD v4\.11a1/);
 assert.match(platformGuard, /DESKTOP_MIN_WIDTH = 800/);
 assert.match(platformGuard, /TowerBattleIntelPlatformIsolationGuard/);
 assert.match(deviceMode, /desktop starts at 800px/);
 
-assert.match(desktopCss, /v4\.11a Desktop Platform Isolation Guard/);
+assert.match(desktopCss, /v4\.11a1 Desktop Platform Isolation Guard/);
 assert.match(desktopCss, /\[data-device-only="mobile"\]/);
-assert.match(mobileCss, /v4\.11a Mobile Isolation Notice/);
+assert.match(mobileCss, /v4\.11a1 Mobile Isolation Notice/);
 
-console.log("current-v4.11a-desktop-lock.test.mjs passed");
+console.log("current-v4.11a1-desktop-lock.test.mjs passed");

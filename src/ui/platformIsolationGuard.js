@@ -1,12 +1,12 @@
 "use strict";
 
 /**
- * PLATFORM ISOLATION GUARD v4.11a
+ * PLATFORM ISOLATION GUARD v4.11a1
  *
  * Desktop-first platform lock for the v4.11 cleanup line.
  *
  * Goal:
- * - keep the v4.11a mockup look intact
+ * - keep the v4.11a1 mockup look intact
  * - stop mobile-only controls leaking into desktop
  * - stop desktop assumptions leaking into mobile detection
  * - expose a tiny runtime status helper for browser checks
@@ -15,7 +15,7 @@
  */
 
 (function () {
-    const VERSION = "v4.11a";
+    const VERSION = "v4.11a1";
     const DESKTOP_MIN_WIDTH = 800;
     const TOUCH_MOBILE_LIMIT = 1024;
     const STYLESHEET_ID = "towerBattleIntelStylesheet";

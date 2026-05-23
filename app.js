@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * APP ENTRY v4.11a
+ * APP ENTRY v4.11a1
  * Small, strict browser entry point.
  *
  * This file only owns startup safety:

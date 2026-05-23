@@ -1875,7 +1875,7 @@ details[open] > summary,
 
 
 /* --------------------------------------------------
-   v4.11a Desktop Platform Isolation Guard
+   v4.11a1 Desktop Platform Isolation Guard
    Desktop is the protected visual baseline. Mobile-only controls stay hidden
    while desktop.css is active. This keeps the mockup look intact while the
    mobile side is repaired separately in v4.11b.
@@ -1898,4 +1898,86 @@ body[data-device-mode="desktop"] {
 
 html[data-device-mode="desktop"] #app {
     min-height: 680px;
+}
+
+/* --------------------------------------------------
+   v4.11a1 Desktop Mockup Polish Lock
+   Desktop-only polish. No mobile repair here.
+-------------------------------------------------- */
+@media (min-width: 800px) {
+    html.device-desktop,
+    body.device-desktop,
+    html.desktop-polish-locked,
+    body.desktop-polish-locked {
+        min-width: 800px;
+        overflow-x: hidden;
+    }
+
+    body.desktop-polish-locked #app {
+        min-height: 100dvh;
+        isolation: isolate;
+    }
+
+    body.desktop-polish-locked [data-device-only="mobile"],
+    html.device-desktop [data-device-only="mobile"] {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    body.desktop-polish-locked button,
+    body.desktop-polish-locked select,
+    body.desktop-polish-locked input,
+    body.desktop-polish-locked textarea,
+    body.desktop-polish-locked summary,
+    body.desktop-polish-locked [role="button"] {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body.desktop-polish-locked button:focus-visible,
+    body.desktop-polish-locked select:focus-visible,
+    body.desktop-polish-locked input:focus-visible,
+    body.desktop-polish-locked textarea:focus-visible,
+    body.desktop-polish-locked summary:focus-visible,
+    body.desktop-polish-locked [role="button"]:focus-visible {
+        outline: 2px solid rgba(29, 231, 255, 0.76);
+        outline-offset: 3px;
+        box-shadow: 0 0 0 4px rgba(29, 231, 255, 0.12);
+    }
+
+    body.desktop-polish-locked .debug-modal,
+    body.desktop-polish-locked .history-stats-card,
+    body.desktop-polish-locked .history-edit-card {
+        max-width: min(1180px, calc(100vw - 44px));
+    }
+
+    body.desktop-polish-locked .history-native-import-control,
+    body.desktop-polish-locked .history-panel-actions button,
+    body.desktop-polish-locked .debug-tools button,
+    body.desktop-polish-locked .input-actions button {
+        transform: translateZ(0);
+    }
+
+    body.desktop-polish-locked .history-native-import-control:hover,
+    body.desktop-polish-locked .history-panel-actions button:hover,
+    body.desktop-polish-locked .debug-tools button:hover,
+    body.desktop-polish-locked .input-actions button:hover {
+        filter: brightness(1.06);
+    }
+
+    body.desktop-polish-locked ::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    body.desktop-polish-locked ::-webkit-scrollbar-track {
+        background: rgba(3, 8, 18, 0.88);
+        border-radius: 999px;
+    }
+
+    body.desktop-polish-locked ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(29,231,255,.56), rgba(255,211,41,.38));
+        border: 3px solid rgba(3, 8, 18, 0.88);
+        border-radius: 999px;
+    }
 }

@@ -1,8 +1,8 @@
-# Tower Battle Intel v4.11a Clean Checkpoint
+# Tower Battle Intel v4.11a1 Clean Checkpoint
 
-Current working line: **v4.11a working-local cleanup checkpoint**.
+Current working line: **v4.11a1 working-local cleanup checkpoint**.
 
-This project is the cleaned recovery checkpoint after the v4.10m–v4.10y control/download/import recovery chain plus v4.11a desktop lock.
+This project is the cleaned recovery checkpoint after the v4.10m–v4.10y control/download/import recovery chain plus v4.11a1 desktop lock.
 
 ## What works in this checkpoint
 
@@ -52,7 +52,7 @@ http://localhost:8080/
 Run from the project root:
 
 ```powershell
-node .\tests\current-v4.11a-checkpoint.test.mjs
+node .\tests\current-v4.11a1-checkpoint.test.mjs
 node .\tests\diagnostics-foundation.test.mjs
 node .\tests\pipeline-foundation.test.mjs
 node .\tests\report-parser-game-brain.test.mjs
@@ -68,3 +68,20 @@ node .\tests\native-import-placement.test.mjs
 ## Next recommended work
 
 Do not add major features directly on this checkpoint. Use this as the rollback point, then start a new `v4.11` branch for deeper consolidation and performance cleanup.
+
+## v4.11a1 Desktop Polish Lock
+
+Desktop-only polish checkpoint built on top of v4.11a Desktop Lock. Mobile repair is intentionally deferred to v4.11b.
+
+Check:
+
+```powershell
+node .\tests\current-v4.11a1-desktop-polish.test.mjs
+```
+
+Browser:
+
+```js
+TowerBattleIntel?.version
+TowerBattleIntelDesktopPolishGuard?.status()
+```
