@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * UI MOUNT ENGINE v4.11a5
+ * UI MOUNT ENGINE v4.11a6
  */
 
 import { byId, setHTML, resolve } from "./dom.js";

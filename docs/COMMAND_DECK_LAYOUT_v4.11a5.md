@@ -1,4 +1,4 @@
-# Tower Battle Intel v4.11a5 Command Deck Layout Cleanup
+# Tower Battle Intel v4.11a6 Command Deck Layout Cleanup
 
 ## Problem
 

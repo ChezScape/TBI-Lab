@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * ACTION AUDIT BRIDGE v4.11a5
+ * ACTION AUDIT BRIDGE v4.11a6
  *
  * Purpose:
  * - Top tabs work, but inner buttons/selects/modals are unreliable.
@@ -33,7 +33,7 @@ import {
 } from "../diagnostics/systemHealthScan.js";
 
 const BRIDGE_FLAG = "__TowerBattleIntelActionAuditBridgeBound";
-const VERSION = "v4.11a5";
+const VERSION = "v4.11a6";
 
 const FILE_INPUT_SELECTOR = [
     "#historyImportInput",
@@ -85,7 +85,7 @@ function handleNativePointerDown(event) {
     const target = event.target;
     if (!isElement(target)) return;
 
-    // v4.11a5: native select/dropdown controls must be left completely native.
+    // v4.11a6: native select/dropdown controls must be left completely native.
     // Stopping pointer/mouse events here made Chrome open then instantly close dropdowns.
     if (isNativeSelectControl(target)) {
         lastAction = { action: "native-select-pointer", at: new Date().toISOString() };
@@ -107,7 +107,7 @@ function handleSummaryToggle(event, target) {
     const details = summary.closest("details");
     if (!details) return false;
 
-    // v4.11a5: let the browser's native <details>/<summary> toggle happen.
+    // v4.11a6: let the browser's native <details>/<summary> toggle happen.
     // The old bridge prevented default and toggled manually; some summaries then fought
     // with render/rebuild paths and appeared dead.
     const wasOpen = Boolean(details.open);
@@ -766,7 +766,7 @@ function handleEditModalClick(event, target) {
     if (!modal) return false;
 
     if (isNativeSelectControl(target) || isTextEditingControl(target)) {
-        // v4.11a5: leave modal selects/textareas fully native so dropdowns and typing work.
+        // v4.11a6: leave modal selects/textareas fully native so dropdowns and typing work.
         return true;
     }
 

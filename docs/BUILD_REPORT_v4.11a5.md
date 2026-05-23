@@ -1,4 +1,4 @@
-# Tower Battle Intel v4.11a5 Build Report
+# Tower Battle Intel v4.11a6 Build Report
 
 ## Build type
 
@@ -14,7 +14,7 @@ Keep the mockup look, but make Command Deck placement logical at both normal and
 
 ## Changes made
 
-- Updated app version to `v4.11a5`.
+- Updated app version to `v4.11a6`.
 - Added a Command Deck desktop layout lock class: `desktop-command-layout-a5`.
 - Aligned Command Deck, Current Data, and Battle Report Input to one shared desktop width.
 - Kept top row as Command Deck left + Current Data right.
@@ -27,8 +27,8 @@ Keep the mockup look, but make Command Deck placement logical at both normal and
 ## Tests run
 
 ```powershell
-node .\tests\current-v4.11a5-checkpoint.test.mjs
-node .\tests\current-v4.11a5-command-layout.test.mjs
+node .\tests\current-v4.11a6-checkpoint.test.mjs
+node .\tests\current-v4.11a6-command-layout.test.mjs
 node .\tests\diagnostics-foundation.test.mjs
 node .\tests\pipeline-foundation.test.mjs
 node .\tests\report-parser-game-brain.test.mjs
@@ -51,4 +51,4 @@ TowerBattleIntelPlatformIsolationGuard?.status()
 TowerBattleIntelDesktopPolishGuard?.status()
 ```
 
-Expected version: `v4.11a5`.
+Expected version: `v4.11a6`.

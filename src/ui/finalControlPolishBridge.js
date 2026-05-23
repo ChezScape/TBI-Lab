@@ -1,9 +1,9 @@
 "use strict";
 
 /**
- * FINAL CONTROL POLISH BRIDGE v4.11a5
+ * FINAL CONTROL POLISH BRIDGE v4.11a6
  *
- * Focuses only on the remaining working-but-unreliable controls after v4.11a5:
+ * Focuses only on the remaining working-but-unreliable controls after v4.11a6:
  * - Dashboard quiet display toggle
  * - History Stats Download JSON
  * - History Edit build-style buttons
@@ -11,7 +11,7 @@
  * - Debug Full Debug JSON download
  *
  * This bridge deliberately avoids native selects/details/textareas so it does not undo
- * the v4.11a5 native-control guard fix.
+ * the v4.11a6 native-control guard fix.
  */
 
 import {
@@ -26,7 +26,7 @@ import {
     buildUKFilenameTimestamp
 } from "../diagnostics/systemHealthScan.js";
 
-const VERSION = "v4.11a5";
+const VERSION = "v4.11a6";
 const BOUND_FLAG = "__TowerBattleIntelFinalControlPolishBridgeBound";
 
 let renderNow = null;

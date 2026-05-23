@@ -19,7 +19,7 @@ export const appConfig = {
 
         name: "Tower Battle Intel",
 
-        version: "v4.11a5",
+        version: "v4.11a6",
 
         environment: "production"
     },

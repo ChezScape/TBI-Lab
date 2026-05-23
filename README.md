@@ -1,6 +1,6 @@
-# Tower Battle Intel v4.11a5
+# Tower Battle Intel v4.11a6
 
-Current working line: **v4.11a5 Desktop Polish Full Build**.
+Current working line: **v4.11a6 Desktop Polish Full Build**.
 
 This project is a local/browser-based Battle Report Intelligence Dashboard.
 
@@ -32,13 +32,13 @@ TowerBattleIntelDesktopPolishGuard?.status()
 TowerBattleIntelNativeControls?.status()
 ```
 
-Expected version: `v4.11a5`.
+Expected version: `v4.11a6`.
 
 ## Current tests
 
 ```powershell
-node .\tests\current-v4.11a5-checkpoint.test.mjs
-node .\tests\current-v4.11a5-desktop-polish.test.mjs
+node .\tests\current-v4.11a6-checkpoint.test.mjs
+node .\tests\current-v4.11a6-desktop-polish.test.mjs
 node .\tests\diagnostics-foundation.test.mjs
 node .\tests\pipeline-foundation.test.mjs
 node .\tests\report-parser-game-brain.test.mjs
@@ -56,11 +56,11 @@ node .\tests\native-import-placement.test.mjs
 If desktop is approved, start `v4.11b` as the mobile-only repair pass.
 
 
-## v4.11a5 Command Deck Dedup
+## v4.11a6 Command Deck Dedup
 
 Desktop Command Deck top controls now use useful shortcuts only: Open History, Import History, Export History, and Open Debug. Save Report, Build, Clear Input, and Clear Runs remain only in the Battle Report Input console below.
 
 
-## v4.11a5 Command Deck Layout Cleanup
+## v4.11a6 Command Deck Layout Cleanup
 
 Desktop-only layout polish. Command Deck, Current Data, and Battle Report Input now share one aligned desktop width so maximised windows do not make the input console look detached.

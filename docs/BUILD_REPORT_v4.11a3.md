@@ -1,4 +1,4 @@
-# Tower Battle Intel v4.11a5 Build Report
+# Tower Battle Intel v4.11a6 Build Report
 
 ## Build type
 
@@ -14,7 +14,7 @@ The native **Battle Report Input** console no longer appears above the main head
 
 ## What changed
 
-- Updated app version to `v4.11a5`.
+- Updated app version to `v4.11a6`.
 - Updated Command Deck helper text so it points to the input console below the deck.
 - Added desktop-only CSS ordering for `#app`, `.layout`, `.input-section`, `#debugPanel`, and `#debug`.
 - Kept mobile untouched for the future `v4.11b` pass.
@@ -28,7 +28,7 @@ TowerBattleIntelPlatformIsolationGuard?.status()
 TowerBattleIntelDesktopPolishGuard?.status()
 ```
 
-Expected version: `v4.11a5`.
+Expected version: `v4.11a6`.
 
 ## Test focus
 

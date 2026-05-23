@@ -10,17 +10,17 @@ const platformGuard = read("./src/ui/platformIsolationGuard.js");
 const desktopPolish = read("./src/ui/desktopPolishGuard.js");
 const desktopCss = read("./desktop.css");
 
-assert.match(config, /version:\s*"v4\.11a3"/);
-assert.match(app, /APP ENTRY v4\.11a3/);
-assert.match(bootstrap, /BOOTSTRAP v4\.11a3/);
+assert.match(config, /version:\s*"v4\.11a6"/);
+assert.match(app, /APP ENTRY v4\.11a6/);
+assert.match(bootstrap, /BOOTSTRAP v4\.11a6/);
 assert.match(index, /platformIsolationGuard\.js/);
 assert.match(index, /universalDownloadBridge\.js/);
 assert.match(index, /historySearchFocusGuard\.js/);
-assert.match(platformGuard, /PLATFORM ISOLATION GUARD v4\.11a3/);
-assert.match(desktopPolish, /DESKTOP POLISH GUARD v4\.11a3/);
-assert.match(desktopCss, /v4\.11a3 Command Deck Input Placement/);
+assert.match(platformGuard, /PLATFORM ISOLATION GUARD v4\.11a6/);
+assert.match(desktopPolish, /DESKTOP POLISH GUARD v4\.11a6/);
+assert.match(desktopCss, /v4\.11a6 Command Deck Input Placement/);
 assert.ok(index.indexOf("platformIsolationGuard.js") < index.indexOf("app.js"));
 assert.ok(index.indexOf("universalDownloadBridge.js") < index.indexOf("app.js"));
 assert.ok(index.indexOf("historySearchFocusGuard.js") < index.indexOf("app.js"));
 
-console.log("current-v4.11a3-checkpoint.test.mjs passed");
+console.log("current-v4.11a6-checkpoint.test.mjs passed");

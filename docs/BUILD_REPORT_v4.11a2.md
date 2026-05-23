@@ -1,4 +1,4 @@
-# Tower Battle Intel v4.11a5 Build Report
+# Tower Battle Intel v4.11a6 Build Report
 
 ## Build type
 
@@ -19,8 +19,8 @@ Keep the mockup look and existing working controls, but improve desktop presenta
 ## Tests run
 
 ```powershell
-node .\tests\current-v4.11a5-checkpoint.test.mjs
-node .\tests\current-v4.11a5-desktop-polish.test.mjs
+node .\tests\current-v4.11a6-checkpoint.test.mjs
+node .\tests\current-v4.11a6-desktop-polish.test.mjs
 node .\tests\diagnostics-foundation.test.mjs
 node .\tests\pipeline-foundation.test.mjs
 node .\tests\report-parser-game-brain.test.mjs

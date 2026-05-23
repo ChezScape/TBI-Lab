@@ -23,4 +23,4 @@ assert.match(desktopCss, /body\[data-dashboard-tab="command"\] \.input-section/)
 assert.match(desktopCss, /desktop-command-layout-a5/);
 assert.match(desktopCss, /grid-template-columns:\s*minmax\(0, 1fr\) minmax\(300px, 360px\)/);
 
-console.log("current-v4.11a5-command-layout.test.mjs passed");
+console.log("current-v4.11a6-command-layout.test.mjs passed");

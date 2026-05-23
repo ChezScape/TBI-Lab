@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * DOM ENGINE v4.11a5
+ * DOM ENGINE v4.11a6
  * Safe selectors, mounting helpers and tiny DOM utilities.
  */
 

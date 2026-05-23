@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * UI NUMBER HELPERS v4.11a5
+ * UI NUMBER HELPERS v4.11a6
  * Thin compatibility wrapper around ui/utils/format.js.
  */
 

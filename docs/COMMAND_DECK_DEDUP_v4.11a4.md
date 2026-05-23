@@ -1,4 +1,4 @@
-# Tower Battle Intel v4.11a5 Command Deck Dedup
+# Tower Battle Intel v4.11a6 Command Deck Dedup
 
 ## Purpose
 
