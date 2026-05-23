@@ -1,0 +1,25 @@
+Tower Battle Intel v4.11a8 Dashboard Concept 5 Desktop Rebuild Audit Notes
+
+Target:
+- Uploaded mockup: concept 5 (aiming for).png
+- User complaint: v4.11a7 still looked like a cleaned-up current dashboard, not a full mockup match.
+
+Observed current issue from screenshot:
+- Old dashboard rhythm still dominates.
+- Run strip too tall because the current card uses a duplicate footer row.
+- Right rail is not behaving like the mockup rail and Quick Actions is pushed too far down.
+- Previous breakpoint overrides were not enough to produce a proper Concept 5 composition.
+
+Patch strategy:
+- Desktop-only CSS appended to desktop.css.
+- Tiny desktop-only helper JS inserted into index.html.
+- Helper JS only normalises presentation: body class, run-card footer sublines, a heading label, and footer text.
+- No data-processing logic changed.
+- No mobile.css changes.
+
+Expected testing:
+1. Open Dashboard maximised.
+2. Ctrl+F5 hard refresh.
+3. Check Run A / VS / Run B height.
+4. Check right rail: Key Takeaways, Quick Insights, Recommendations, Anomalies, Quick Actions.
+5. Resize Chrome to around 1280x720 and check the layout still looks like the concept rather than stacking early.
