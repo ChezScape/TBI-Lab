@@ -2512,3 +2512,717 @@ html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .input-secti
 .save-report-toast.bad strong {
     color: var(--red, #ff405a);
 }
+
+
+/* === TBI v4.11a7 Dashboard Concept 5 Desktop Polish START ===
+   Desktop-only dashboard polish.
+   Append this block to desktop.css after the existing desktop rules.
+   Targets the v4.10/v4.11 desktop split classes without touching mobile.css.
+*/
+
+html.device-desktop,
+html[data-device-mode="desktop"] {
+    --tbi-dash-max: 1920px;
+    --tbi-dash-pad: clamp(8px, 0.8vw, 18px);
+    --tbi-dash-gap: clamp(8px, 0.75vw, 14px);
+    --tbi-card-pad: clamp(9px, 0.7vw, 14px);
+    --tbi-side-width: clamp(310px, 23vw, 430px);
+    --tbi-header-brand: clamp(292px, 22vw, 430px);
+    --tbi-header-actions: clamp(150px, 10vw, 204px);
+}
+
+html.device-desktop body,
+html[data-device-mode="desktop"] body {
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 9% -10%, rgba(29, 231, 255, 0.19), transparent 28%),
+        radial-gradient(circle at 94% 4%, rgba(255, 75, 226, 0.15), transparent 31%),
+        radial-gradient(circle at 50% 100%, rgba(255, 211, 41, 0.055), transparent 34%),
+        linear-gradient(180deg, #061323 0%, #020612 45%, #01030a 100%);
+}
+
+html.device-desktop #app,
+html[data-device-mode="desktop"] #app {
+    min-width: 0;
+}
+
+html.device-desktop .layout,
+html[data-device-mode="desktop"] .layout {
+    width: min(var(--tbi-dash-max), 100%);
+    padding-inline: var(--tbi-dash-pad) !important;
+    padding-bottom: var(--tbi-dash-pad) !important;
+}
+
+html.device-desktop .tbi-shell,
+html[data-device-mode="desktop"] .tbi-shell {
+    padding-top: clamp(6px, 0.55vw, 12px) !important;
+}
+
+html.device-desktop .tbi-header,
+html[data-device-mode="desktop"] .tbi-header {
+    width: min(var(--tbi-dash-max), calc(100% - (var(--tbi-dash-pad) * 2))) !important;
+    grid-template-columns: minmax(260px, var(--tbi-header-brand)) minmax(390px, 1fr) auto !important;
+    gap: clamp(8px, 0.9vw, 18px) !important;
+    min-height: clamp(58px, 5.6vh, 76px) !important;
+    padding: clamp(7px, 0.7vw, 11px) clamp(10px, 0.95vw, 18px) !important;
+    margin-bottom: var(--tbi-dash-gap) !important;
+    border: 1px solid rgba(29, 231, 255, 0.22);
+    border-inline-color: rgba(255, 75, 226, 0.12);
+    border-radius: 0 0 16px 16px;
+    background:
+        linear-gradient(90deg, rgba(29, 231, 255, 0.07), transparent 23%, transparent 77%, rgba(255, 75, 226, 0.075)),
+        linear-gradient(180deg, rgba(2, 8, 18, 0.96), rgba(1, 4, 12, 0.90));
+}
+
+html.device-desktop .tbi-brand-block,
+html[data-device-mode="desktop"] .tbi-brand-block {
+    gap: clamp(8px, 0.75vw, 15px) !important;
+    min-width: 0;
+}
+
+html.device-desktop .tbi-logo-mark,
+html[data-device-mode="desktop"] .tbi-logo-mark {
+    width: clamp(42px, 3.2vw, 58px) !important;
+    height: clamp(42px, 3.2vw, 58px) !important;
+}
+
+html.device-desktop .tbi-brand-copy,
+html[data-device-mode="desktop"] .tbi-brand-copy {
+    min-width: 0;
+}
+
+html.device-desktop .tbi-brand-title,
+html[data-device-mode="desktop"] .tbi-brand-title {
+    font-size: clamp(18px, 1.35vw, 32px) !important;
+    letter-spacing: clamp(0.055em, 0.42vw, 0.125em) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.device-desktop .tbi-brand-subtitle,
+html[data-device-mode="desktop"] .tbi-brand-subtitle {
+    font-size: clamp(8px, 0.62vw, 12px) !important;
+    letter-spacing: clamp(0.10em, 0.45vw, 0.22em) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.device-desktop .tbi-desktop-nav,
+html[data-device-mode="desktop"] .tbi-desktop-nav {
+    height: clamp(36px, 4.2vh, 46px) !important;
+    min-width: 0;
+    border-radius: 11px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.025), 0 0 18px rgba(29,231,255,0.08);
+}
+
+html.device-desktop .tbi-nav-button,
+html[data-device-mode="desktop"] .tbi-nav-button {
+    min-height: clamp(34px, 4vh, 44px) !important;
+    padding: 0 clamp(3px, 0.45vw, 9px) !important;
+    font-size: clamp(8px, 0.58vw, 11px) !important;
+    letter-spacing: clamp(0.04em, 0.25vw, 0.14em) !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+html.device-desktop .tbi-nav-button span:last-child,
+html[data-device-mode="desktop"] .tbi-nav-button span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.device-desktop .tbi-header-actions,
+html[data-device-mode="desktop"] .tbi-header-actions {
+    justify-self: end !important;
+    gap: clamp(5px, 0.55vw, 10px) !important;
+}
+
+html.device-desktop .tbi-version-pill,
+html[data-device-mode="desktop"] .tbi-version-pill,
+html.device-desktop .tbi-icon-button,
+html.device-desktop .tbi-mode-toggle,
+html[data-device-mode="desktop"] .tbi-icon-button,
+html[data-device-mode="desktop"] .tbi-mode-toggle {
+    min-height: clamp(34px, 4vh, 44px) !important;
+}
+
+html.device-desktop .tbi-version-pill,
+html[data-device-mode="desktop"] .tbi-version-pill {
+    min-width: clamp(60px, 4.4vw, 76px) !important;
+    padding: 8px 10px !important;
+    font-size: clamp(10px, 0.7vw, 13px) !important;
+}
+
+html.device-desktop .tbi-icon-button,
+html[data-device-mode="desktop"] .tbi-icon-button {
+    width: clamp(34px, 3.2vw, 44px) !important;
+    height: clamp(34px, 3.2vw, 44px) !important;
+}
+
+html.device-desktop .tbi-mode-toggle,
+html[data-device-mode="desktop"] .tbi-mode-toggle {
+    width: clamp(48px, 4.5vw, 70px) !important;
+    height: clamp(34px, 3.2vw, 44px) !important;
+}
+
+html.device-desktop .tbi-desktop-workspace,
+html[data-device-mode="desktop"] .tbi-desktop-workspace {
+    width: min(var(--tbi-dash-max), 100%) !important;
+    margin-inline: auto !important;
+    position: relative;
+}
+
+html.device-desktop .tbi-desktop-workspace::before,
+html[data-device-mode="desktop"] .tbi-desktop-workspace::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(29,231,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(29,231,255,0.020) 1px, transparent 1px);
+    background-size: clamp(34px, 2.8vw, 48px) clamp(34px, 2.8vw, 48px);
+    mask-image: radial-gradient(circle at 50% 20%, black 0%, transparent 82%);
+}
+
+html.device-desktop .tbi-desktop-grid,
+html[data-device-mode="desktop"] .tbi-desktop-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) var(--tbi-side-width) !important;
+    gap: var(--tbi-dash-gap) !important;
+    align-items: start !important;
+}
+
+html.device-desktop .tbi-main-column,
+html.device-desktop .tbi-side-column,
+html.device-desktop .tbi-view-stack,
+html[data-device-mode="desktop"] .tbi-main-column,
+html[data-device-mode="desktop"] .tbi-side-column,
+html[data-device-mode="desktop"] .tbi-view-stack {
+    gap: var(--tbi-dash-gap) !important;
+    min-width: 0;
+}
+
+html.device-desktop .tbi-side-column,
+html[data-device-mode="desktop"] .tbi-side-column {
+    position: sticky !important;
+    top: calc(clamp(58px, 5.6vh, 76px) + var(--tbi-dash-gap)) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-self: start !important;
+}
+
+html.device-desktop .tbi-card,
+html.device-desktop .wa-panel,
+html[data-device-mode="desktop"] .tbi-card,
+html[data-device-mode="desktop"] .wa-panel {
+    border-radius: clamp(9px, 0.7vw, 14px) !important;
+    padding: var(--tbi-card-pad) !important;
+    background:
+        linear-gradient(90deg, rgba(29,231,255,0.075), transparent 15%, transparent 84%, rgba(255,75,226,0.070)),
+        linear-gradient(180deg, rgba(5,16,31,0.955), rgba(2,7,17,0.972)) !important;
+    border-color: rgba(29, 231, 255, 0.30) !important;
+    box-shadow:
+        0 12px 34px rgba(0, 0, 0, 0.42),
+        inset 0 0 0 1px rgba(255,255,255,0.025),
+        inset 0 0 24px rgba(29,231,255,0.025) !important;
+}
+
+html.device-desktop .tbi-card h2,
+html.device-desktop .tbi-card h3,
+html[data-device-mode="desktop"] .tbi-card h2,
+html[data-device-mode="desktop"] .tbi-card h3 {
+    font-size: clamp(12px, 0.9vw, 18px) !important;
+    letter-spacing: clamp(0.07em, 0.32vw, 0.15em) !important;
+}
+
+html.device-desktop .tbi-card-heading,
+html[data-device-mode="desktop"] .tbi-card-heading {
+    gap: 8px !important;
+    margin-bottom: clamp(6px, 0.55vw, 10px) !important;
+}
+
+html.device-desktop .tbi-run-strip,
+html[data-device-mode="desktop"] .tbi-run-strip {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) clamp(76px, 6.8vw, 132px) minmax(0, 1fr) !important;
+    gap: var(--tbi-dash-gap) !important;
+    align-items: stretch !important;
+}
+
+html.device-desktop .tbi-run-card,
+html[data-device-mode="desktop"] .tbi-run-card {
+    min-height: clamp(130px, 16vh, 164px) !important;
+    padding: clamp(8px, 0.7vw, 14px) !important;
+    border-radius: 0 clamp(12px, 0.95vw, 18px) clamp(12px, 0.95vw, 18px) clamp(12px, 0.95vw, 18px) !important;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(29,231,255,0.13), transparent 42%),
+        linear-gradient(180deg, rgba(2,8,18,0.92), rgba(1,6,15,0.96)) !important;
+}
+
+html.device-desktop .tbi-run-card.run-b,
+html[data-device-mode="desktop"] .tbi-run-card.run-b {
+    background:
+        radial-gradient(circle at 82% 0%, rgba(255,211,41,0.14), transparent 42%),
+        linear-gradient(180deg, rgba(2,8,18,0.92), rgba(1,6,15,0.96)) !important;
+}
+
+html.device-desktop .tbi-run-card-top,
+html[data-device-mode="desktop"] .tbi-run-card-top {
+    margin-bottom: clamp(7px, 0.65vw, 12px) !important;
+}
+
+html.device-desktop .tbi-run-card h2,
+html[data-device-mode="desktop"] .tbi-run-card h2 {
+    font-size: clamp(15px, 1.1vw, 22px) !important;
+    letter-spacing: clamp(0.06em, 0.32vw, 0.13em) !important;
+}
+
+html.device-desktop .tbi-run-card-top span,
+html[data-device-mode="desktop"] .tbi-run-card-top span,
+html.device-desktop .tbi-run-time-stack,
+html[data-device-mode="desktop"] .tbi-run-time-stack {
+    font-size: clamp(8px, 0.62vw, 12px) !important;
+}
+
+html.device-desktop .tbi-run-metrics,
+html[data-device-mode="desktop"] .tbi-run-metrics {
+    border-radius: clamp(7px, 0.55vw, 10px) !important;
+}
+
+html.device-desktop .tbi-run-metric,
+html[data-device-mode="desktop"] .tbi-run-metric {
+    min-height: clamp(49px, 6.9vh, 73px) !important;
+    padding: clamp(6px, 0.55vw, 10px) !important;
+}
+
+html.device-desktop .tbi-run-metric span,
+html[data-device-mode="desktop"] .tbi-run-metric span {
+    font-size: clamp(7px, 0.48vw, 10px) !important;
+    letter-spacing: clamp(0.05em, 0.25vw, 0.12em) !important;
+}
+
+html.device-desktop .tbi-run-metric strong,
+html[data-device-mode="desktop"] .tbi-run-metric strong {
+    font-size: clamp(15px, 1.25vw, 28px) !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html.device-desktop .tbi-run-footer,
+html[data-device-mode="desktop"] .tbi-run-footer {
+    margin-top: 1px !important;
+}
+
+html.device-desktop .tbi-run-footer span,
+html[data-device-mode="desktop"] .tbi-run-footer span {
+    padding: clamp(4px, 0.45vw, 7px) clamp(5px, 0.55vw, 9px) !important;
+    font-size: clamp(7px, 0.46vw, 9px) !important;
+}
+
+html.device-desktop .tbi-run-footer strong,
+html[data-device-mode="desktop"] .tbi-run-footer strong {
+    font-size: clamp(10px, 0.72vw, 13px) !important;
+}
+
+html.device-desktop .tbi-vs-core,
+html[data-device-mode="desktop"] .tbi-vs-core {
+    min-height: clamp(130px, 16vh, 164px) !important;
+}
+
+html.device-desktop .tbi-vs-gem,
+html[data-device-mode="desktop"] .tbi-vs-gem {
+    width: clamp(58px, 5vw, 96px) !important;
+    height: clamp(58px, 5vw, 96px) !important;
+    font-size: clamp(22px, 2.1vw, 36px) !important;
+}
+
+html.device-desktop .tbi-vs-label,
+html[data-device-mode="desktop"] .tbi-vs-label {
+    font-size: clamp(9px, 0.72vw, 14px) !important;
+}
+
+html.device-desktop .tbi-diff-row,
+html[data-device-mode="desktop"] .tbi-diff-row {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: clamp(5px, 0.45vw, 8px) !important;
+}
+
+html.device-desktop .tbi-diff-tile,
+html[data-device-mode="desktop"] .tbi-diff-tile {
+    min-height: clamp(70px, 9vh, 92px) !important;
+    padding: clamp(7px, 0.55vw, 12px) !important;
+    gap: 2px clamp(6px, 0.5vw, 10px) !important;
+}
+
+html.device-desktop .tbi-diff-icon,
+html[data-device-mode="desktop"] .tbi-diff-icon {
+    width: clamp(30px, 2.4vw, 42px) !important;
+    height: clamp(30px, 2.4vw, 42px) !important;
+    font-size: clamp(15px, 1.25vw, 22px) !important;
+}
+
+html.device-desktop .tbi-diff-tile span,
+html[data-device-mode="desktop"] .tbi-diff-tile span {
+    font-size: clamp(7px, 0.48vw, 10px) !important;
+}
+
+html.device-desktop .tbi-diff-tile strong,
+html[data-device-mode="desktop"] .tbi-diff-tile strong {
+    font-size: clamp(15px, 1.15vw, 23px) !important;
+}
+
+html.device-desktop .tbi-diff-tile em,
+html[data-device-mode="desktop"] .tbi-diff-tile em {
+    font-size: clamp(8px, 0.58vw, 12px) !important;
+}
+
+html.device-desktop .tbi-grid,
+html[data-device-mode="desktop"] .tbi-grid {
+    gap: var(--tbi-dash-gap) !important;
+}
+
+html.device-desktop .tbi-grid-4,
+html[data-device-mode="desktop"] .tbi-grid-4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+html.device-desktop .tbi-metric-card,
+html.device-desktop .tbi-gap-panel,
+html[data-device-mode="desktop"] .tbi-metric-card,
+html[data-device-mode="desktop"] .tbi-gap-panel {
+    min-height: clamp(208px, 29vh, 302px) !important;
+}
+
+html.device-desktop .tbi-metric-table,
+html[data-device-mode="desktop"] .tbi-metric-table {
+    gap: 1px !important;
+}
+
+html.device-desktop .tbi-metric-row,
+html[data-device-mode="desktop"] .tbi-metric-row {
+    min-height: clamp(22px, 3.1vh, 28px) !important;
+    padding: clamp(4px, 0.42vw, 6px) clamp(5px, 0.55vw, 8px) !important;
+    gap: clamp(4px, 0.45vw, 8px) !important;
+    font-size: clamp(9px, 0.66vw, 12px) !important;
+    grid-template-columns: minmax(88px, 1.18fr) repeat(3, minmax(44px, 0.52fr)) !important;
+}
+
+html.device-desktop .tbi-metric-row.header,
+html[data-device-mode="desktop"] .tbi-metric-row.header {
+    font-size: clamp(7px, 0.48vw, 10px) !important;
+}
+
+html.device-desktop .tbi-card-footer-action,
+html[data-device-mode="desktop"] .tbi-card-footer-action {
+    min-height: clamp(29px, 3.5vh, 38px) !important;
+    padding: clamp(6px, 0.5vw, 8px) !important;
+    font-size: clamp(8px, 0.58vw, 11px) !important;
+}
+
+html.device-desktop .tbi-radar-wrap,
+html[data-device-mode="desktop"] .tbi-radar-wrap {
+    max-width: min(100%, clamp(230px, 22vw, 390px)) !important;
+}
+
+html.device-desktop .radar-label,
+html[data-device-mode="desktop"] .radar-label {
+    font-size: clamp(10px, 0.75vw, 14px) !important;
+}
+
+html.device-desktop .tbi-radar-legend,
+html[data-device-mode="desktop"] .tbi-radar-legend {
+    margin-top: 0 !important;
+    gap: clamp(14px, 1.8vw, 36px) !important;
+    font-size: clamp(9px, 0.65vw, 12px) !important;
+}
+
+html.device-desktop .tbi-status-footer,
+html[data-device-mode="desktop"] .tbi-status-footer {
+    min-height: clamp(28px, 3.8vh, 34px) !important;
+    padding: clamp(6px, 0.5vw, 8px) clamp(9px, 0.8vw, 16px) !important;
+    gap: var(--tbi-dash-gap) !important;
+    font-size: clamp(9px, 0.66vw, 12px) !important;
+}
+
+html.device-desktop .tbi-mini-stat-grid,
+html[data-device-mode="desktop"] .tbi-mini-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(5px, 0.45vw, 8px) !important;
+}
+
+html.device-desktop .tbi-mini-stat,
+html[data-device-mode="desktop"] .tbi-mini-stat {
+    padding: clamp(7px, 0.58vw, 12px) clamp(6px, 0.5vw, 10px) !important;
+}
+
+html.device-desktop .tbi-mini-stat span,
+html[data-device-mode="desktop"] .tbi-mini-stat span {
+    font-size: clamp(7px, 0.48vw, 10px) !important;
+}
+
+html.device-desktop .tbi-mini-stat strong,
+html[data-device-mode="desktop"] .tbi-mini-stat strong {
+    font-size: clamp(14px, 1vw, 18px) !important;
+}
+
+html.device-desktop .tbi-target-reticle,
+html[data-device-mode="desktop"] .tbi-target-reticle {
+    width: clamp(48px, 4.5vw, 72px) !important;
+    height: clamp(48px, 4.5vw, 72px) !important;
+}
+
+html.device-desktop .tbi-chart-icon,
+html[data-device-mode="desktop"] .tbi-chart-icon {
+    height: clamp(36px, 5.2vh, 58px) !important;
+}
+
+html.device-desktop .tbi-chart-icon i:nth-child(1),
+html[data-device-mode="desktop"] .tbi-chart-icon i:nth-child(1) { height: 38%; }
+html.device-desktop .tbi-chart-icon i:nth-child(2),
+html[data-device-mode="desktop"] .tbi-chart-icon i:nth-child(2) { height: 55%; }
+html.device-desktop .tbi-chart-icon i:nth-child(3),
+html[data-device-mode="desktop"] .tbi-chart-icon i:nth-child(3) { height: 74%; }
+html.device-desktop .tbi-chart-icon i:nth-child(4),
+html[data-device-mode="desktop"] .tbi-chart-icon i:nth-child(4) { height: 96%; }
+
+html.device-desktop .tbi-action-grid,
+html[data-device-mode="desktop"] .tbi-action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(5px, 0.45vw, 8px) !important;
+}
+
+html.device-desktop .tbi-action-grid button,
+html[data-device-mode="desktop"] .tbi-action-grid button {
+    min-height: clamp(30px, 3.7vh, 38px) !important;
+    padding: clamp(6px, 0.52vw, 9px) !important;
+    font-size: clamp(8px, 0.58vw, 11px) !important;
+}
+
+/* Keep the mockup structure on 720p-ish desktop Chrome instead of collapsing at 1500/1280. */
+@media (min-width: 1040px) and (max-width: 1500px) {
+    html.device-desktop,
+    html[data-device-mode="desktop"] {
+        --tbi-side-width: clamp(292px, 27vw, 370px);
+        --tbi-dash-gap: clamp(7px, 0.65vw, 11px);
+        --tbi-card-pad: clamp(8px, 0.6vw, 11px);
+    }
+
+    html.device-desktop .tbi-desktop-grid,
+    html[data-device-mode="desktop"] .tbi-desktop-grid {
+        grid-template-columns: minmax(0, 1fr) var(--tbi-side-width) !important;
+    }
+
+    html.device-desktop .tbi-side-column,
+    html[data-device-mode="desktop"] .tbi-side-column {
+        position: sticky !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    html.device-desktop .tbi-run-strip,
+    html[data-device-mode="desktop"] .tbi-run-strip {
+        grid-template-columns: minmax(0, 1fr) clamp(64px, 6vw, 88px) minmax(0, 1fr) !important;
+    }
+
+    html.device-desktop .tbi-grid-4,
+    html[data-device-mode="desktop"] .tbi-grid-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    html.device-desktop .tbi-diff-row,
+    html[data-device-mode="desktop"] .tbi-diff-row {
+        grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1040px) and (max-height: 760px) {
+    html.device-desktop,
+    html[data-device-mode="desktop"] {
+        --tbi-dash-pad: 8px;
+        --tbi-dash-gap: 7px;
+        --tbi-card-pad: 8px;
+        --tbi-side-width: clamp(285px, 26vw, 350px);
+    }
+
+    html.device-desktop .tbi-shell,
+    html[data-device-mode="desktop"] .tbi-shell {
+        padding-top: 6px !important;
+    }
+
+    html.device-desktop .tbi-header,
+    html[data-device-mode="desktop"] .tbi-header {
+        min-height: 54px !important;
+        padding-block: 6px !important;
+        margin-bottom: 7px !important;
+        grid-template-columns: minmax(230px, 310px) minmax(420px, 1fr) auto !important;
+    }
+
+    html.device-desktop .tbi-logo-mark,
+    html[data-device-mode="desktop"] .tbi-logo-mark {
+        width: 38px !important;
+        height: 38px !important;
+    }
+
+    html.device-desktop .tbi-brand-title,
+    html[data-device-mode="desktop"] .tbi-brand-title { font-size: 17px !important; }
+    html.device-desktop .tbi-brand-subtitle,
+    html[data-device-mode="desktop"] .tbi-brand-subtitle { font-size: 8px !important; }
+
+    html.device-desktop .tbi-desktop-nav,
+    html[data-device-mode="desktop"] .tbi-desktop-nav { height: 34px !important; }
+    html.device-desktop .tbi-nav-button,
+    html[data-device-mode="desktop"] .tbi-nav-button { min-height: 32px !important; font-size: 8px !important; }
+
+    html.device-desktop .tbi-version-pill,
+    html.device-desktop .tbi-icon-button,
+    html.device-desktop .tbi-mode-toggle,
+    html[data-device-mode="desktop"] .tbi-version-pill,
+    html[data-device-mode="desktop"] .tbi-icon-button,
+    html[data-device-mode="desktop"] .tbi-mode-toggle {
+        height: 32px !important;
+        min-height: 32px !important;
+    }
+
+    html.device-desktop .tbi-run-card,
+    html.device-desktop .tbi-vs-core,
+    html[data-device-mode="desktop"] .tbi-run-card,
+    html[data-device-mode="desktop"] .tbi-vs-core {
+        min-height: 118px !important;
+    }
+
+    html.device-desktop .tbi-run-metric,
+    html[data-device-mode="desktop"] .tbi-run-metric {
+        min-height: 43px !important;
+        padding: 5px !important;
+    }
+
+    html.device-desktop .tbi-run-footer span,
+    html[data-device-mode="desktop"] .tbi-run-footer span {
+        padding: 4px 6px !important;
+    }
+
+    html.device-desktop .tbi-diff-tile,
+    html[data-device-mode="desktop"] .tbi-diff-tile {
+        min-height: 58px !important;
+        padding: 6px !important;
+    }
+
+    html.device-desktop .tbi-diff-icon,
+    html[data-device-mode="desktop"] .tbi-diff-icon {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 14px !important;
+    }
+
+    html.device-desktop .tbi-metric-card,
+    html.device-desktop .tbi-gap-panel,
+    html[data-device-mode="desktop"] .tbi-metric-card,
+    html[data-device-mode="desktop"] .tbi-gap-panel {
+        min-height: 172px !important;
+    }
+
+    html.device-desktop .tbi-radar-wrap,
+    html[data-device-mode="desktop"] .tbi-radar-wrap {
+        max-width: 220px !important;
+    }
+
+    html.device-desktop .tbi-card p,
+    html.device-desktop .tbi-takeaways li,
+    html.device-desktop .tbi-anomaly-row span,
+    html[data-device-mode="desktop"] .tbi-card p,
+    html[data-device-mode="desktop"] .tbi-takeaways li,
+    html[data-device-mode="desktop"] .tbi-anomaly-row span {
+        font-size: 11px !important;
+        line-height: 1.28 !important;
+    }
+
+    html.device-desktop .tbi-status-footer,
+    html[data-device-mode="desktop"] .tbi-status-footer {
+        min-height: 26px !important;
+        padding-block: 5px !important;
+    }
+}
+
+/* Controlled lower desktop fallback: still neat, only stacks when space truly runs out. */
+@media (min-width: 900px) and (max-width: 1039px) {
+    html.device-desktop,
+    html[data-device-mode="desktop"] {
+        --tbi-dash-gap: 8px;
+        --tbi-card-pad: 9px;
+    }
+
+    html.device-desktop .tbi-header,
+    html[data-device-mode="desktop"] .tbi-header {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+
+    html.device-desktop .tbi-header-actions,
+    html[data-device-mode="desktop"] .tbi-header-actions {
+        justify-self: start !important;
+    }
+
+    html.device-desktop .tbi-desktop-grid,
+    html[data-device-mode="desktop"] .tbi-desktop-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.device-desktop .tbi-side-column,
+    html[data-device-mode="desktop"] .tbi-side-column {
+        position: static !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    html.device-desktop .tbi-run-strip,
+    html[data-device-mode="desktop"] .tbi-run-strip {
+        grid-template-columns: minmax(0, 1fr) 70px minmax(0, 1fr) !important;
+    }
+
+    html.device-desktop .tbi-grid-4,
+    html[data-device-mode="desktop"] .tbi-grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    html.device-desktop .tbi-diff-row,
+    html[data-device-mode="desktop"] .tbi-diff-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 899px) {
+    html.device-desktop .tbi-desktop-grid,
+    html[data-device-mode="desktop"] .tbi-desktop-grid,
+    html.device-desktop .tbi-side-column,
+    html[data-device-mode="desktop"] .tbi-side-column,
+    html.device-desktop .tbi-grid-2,
+    html[data-device-mode="desktop"] .tbi-grid-2,
+    html.device-desktop .tbi-grid-4,
+    html[data-device-mode="desktop"] .tbi-grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.device-desktop .tbi-run-strip,
+    html[data-device-mode="desktop"] .tbi-run-strip {
+        grid-template-columns: 1fr !important;
+    }
+
+    html.device-desktop .tbi-vs-core,
+    html[data-device-mode="desktop"] .tbi-vs-core {
+        min-height: auto !important;
+        grid-template-columns: 72px 1fr !important;
+        justify-content: start !important;
+        text-align: left !important;
+    }
+
+    html.device-desktop .tbi-diff-row,
+    html[data-device-mode="desktop"] .tbi-diff-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+/* === TBI v4.11a7 Dashboard Concept 5 Desktop Polish END === */
+
+
