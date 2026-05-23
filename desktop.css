@@ -1873,12 +1873,9 @@ details[open] > summary,
 }
 
 
-
 /* --------------------------------------------------
-   v4.11a1 Desktop Platform Isolation Guard
-   Desktop is the protected visual baseline. Mobile-only controls stay hidden
-   while desktop.css is active. This keeps the mockup look intact while the
-   mobile side is repaired separately in v4.11b.
+   v4.11a2 Desktop Polish: History / Systems / Command Deck
+   Desktop-only visual tightening. Mobile repair remains reserved for v4.11b.
 -------------------------------------------------- */
 html[data-device-mode="desktop"] [data-device-only="mobile"],
 body[data-device-mode="desktop"] [data-device-only="mobile"],
@@ -1900,84 +1897,278 @@ html[data-device-mode="desktop"] #app {
     min-height: 680px;
 }
 
-/* --------------------------------------------------
-   v4.11a1 Desktop Mockup Polish Lock
-   Desktop-only polish. No mobile repair here.
--------------------------------------------------- */
-@media (min-width: 800px) {
-    html.device-desktop,
-    body.device-desktop,
-    html.desktop-polish-locked,
-    body.desktop-polish-locked {
-        min-width: 800px;
-        overflow-x: hidden;
+html.desktop-polish .tbi-card-heading p {
+    margin: 4px 0 0;
+}
+
+html.desktop-polish .tbi-systems-panel {
+    padding: 12px;
+}
+
+html.desktop-polish .tbi-system-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+html.desktop-polish .tbi-system-tile {
+    min-height: 74px;
+    gap: 5px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    align-content: center;
+}
+
+html.desktop-polish .tbi-system-tile span {
+    font-size: 9.5px;
+    letter-spacing: .115em;
+}
+
+html.desktop-polish .tbi-system-tile strong {
+    font-size: clamp(16px, 1.25vw, 20px);
+    line-height: 1;
+}
+
+html.desktop-polish .tbi-system-detail {
+    padding: 10px 12px 12px;
+}
+
+html.desktop-polish .tbi-system-detail > summary {
+    min-height: 34px;
+    margin-bottom: 7px;
+    align-items: center;
+    font-size: 13px;
+}
+
+html.desktop-polish .tbi-system-detail .tbi-metric-table {
+    gap: 1px;
+}
+
+html.desktop-polish .tbi-system-detail .tbi-metric-row {
+    min-height: 24px;
+    padding: 5px 8px;
+    font-size: 11px;
+    grid-template-columns: minmax(150px, 1.35fr) repeat(3, minmax(70px, .52fr));
+}
+
+html.desktop-polish .history-stats-card.phase3 {
+    width: min(1120px, calc(100vw - 96px));
+    max-height: calc(100dvh - 86px);
+}
+
+html.desktop-polish .history-stats-header {
+    padding: 11px 16px;
+}
+
+html.desktop-polish .history-stats-toolbar {
+    padding: 9px 16px;
+}
+
+html.desktop-polish .history-stats-body {
+    padding: 12px 16px 10px;
+}
+
+html.desktop-polish .history-stats-view.active {
+    gap: 8px;
+}
+
+html.desktop-polish .history-stats-section {
+    padding: 9px 10px;
+    margin-bottom: 8px;
+    border-radius: 11px;
+}
+
+html.desktop-polish .history-stats-section-title {
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+html.desktop-polish .history-stats-grid,
+html.desktop-polish .history-stats-mini-grid {
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 7px;
+}
+
+html.desktop-polish .history-stats-tile,
+html.desktop-polish .history-stats-delta,
+html.desktop-polish .history-stats-row {
+    padding: 7px 9px;
+    border-radius: 9px;
+}
+
+html.desktop-polish .history-stats-row {
+    min-height: 30px;
+}
+
+html.desktop-polish .history-stats-row strong {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+html.desktop-polish .history-stats-table {
+    gap: 4px;
+}
+
+html.desktop-polish .history-stats-search {
+    min-height: 34px;
+    padding: 8px 10px;
+    border-color: rgba(29,231,255,.28);
+    box-shadow: inset 0 0 14px rgba(29,231,255,.035);
+}
+
+html.desktop-polish .history-stats-section.search-match {
+    border-color: rgba(29,231,255,.72);
+    box-shadow:
+        0 0 0 1px rgba(29,231,255,.32),
+        0 0 24px rgba(29,231,255,.20),
+        inset 0 0 22px rgba(29,231,255,.055);
+}
+
+html.desktop-polish .history-stats-section.row-search-match {
+    background:
+        linear-gradient(180deg, rgba(29,231,255,.065), rgba(1,7,17,.68));
+}
+
+html.desktop-polish .history-stats-row.search-match {
+    border-color: rgba(255,211,41,.72);
+    background: rgba(255,211,41,.105);
+    box-shadow: 0 0 16px rgba(255,211,41,.20);
+}
+
+html.desktop-polish .history-stats-match-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 20px;
+    padding: 3px 7px;
+    border: 1px solid rgba(255,211,41,.45);
+    border-radius: 999px;
+    color: #fff3bd;
+    background: rgba(255,211,41,.10);
+    font-size: 9px;
+    letter-spacing: .10em;
+}
+
+html.desktop-polish .tbi-command-view.desktop-command-polish {
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 390px);
+    align-items: stretch;
+    gap: 12px;
+}
+
+html.desktop-polish .tbi-command-card,
+html.desktop-polish .tbi-command-status {
+    min-height: 0;
+}
+
+html.desktop-polish .tbi-command-flow .tbi-card-heading,
+html.desktop-polish .desktop-command-status .tbi-card-heading {
+    border-bottom: 1px solid rgba(29,231,255,.10);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+html.desktop-polish .tbi-command-mode-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 26px;
+    padding: 4px 9px;
+    border: 1px solid rgba(29,231,255,.24);
+    border-radius: 999px;
+    color: var(--cyan);
+    background: rgba(29,231,255,.06);
+    font-size: 10px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+html.desktop-polish .tbi-command-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 2px 0 10px;
+}
+
+html.desktop-polish .tbi-command-step {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 2px 8px;
+    align-items: center;
+    min-height: 70px;
+    padding: 9px 10px;
+    border: 1px solid rgba(29,231,255,.14);
+    border-radius: 10px;
+    background: rgba(1,7,17,.58);
+}
+
+html.desktop-polish .tbi-command-step span {
+    grid-row: span 2;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(29,231,255,.34);
+    border-radius: 999px;
+    color: var(--cyan);
+    background: rgba(29,231,255,.08);
+    font-weight: 1000;
+}
+
+html.desktop-polish .tbi-command-step strong {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    font-size: 11px;
+}
+
+html.desktop-polish .tbi-command-step em {
+    color: var(--soft);
+    font-style: normal;
+    line-height: 1.35;
+    font-size: 12px;
+}
+
+html.desktop-polish .desktop-command-actions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+html.desktop-polish .desktop-command-actions button {
+    min-height: 38px;
+}
+
+html.desktop-polish .tbi-command-note {
+    margin-top: 10px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255,255,255,.055);
+    border-radius: 9px;
+    color: var(--soft);
+    background: rgba(1,7,17,.46);
+    font-size: 12px;
+}
+
+html.desktop-polish .desktop-command-stats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+html.desktop-polish .desktop-command-status .tbi-mini-stat {
+    min-height: 52px;
+    padding: 9px 10px;
+}
+
+@media (max-width: 1180px) {
+    html.desktop-polish .tbi-system-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    body.desktop-polish-locked #app {
-        min-height: 100dvh;
-        isolation: isolate;
+    html.desktop-polish .tbi-command-view.desktop-command-polish {
+        grid-template-columns: 1fr;
     }
 
-    body.desktop-polish-locked [data-device-only="mobile"],
-    html.device-desktop [data-device-only="mobile"] {
-        display: none !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-    }
-
-    body.desktop-polish-locked button,
-    body.desktop-polish-locked select,
-    body.desktop-polish-locked input,
-    body.desktop-polish-locked textarea,
-    body.desktop-polish-locked summary,
-    body.desktop-polish-locked [role="button"] {
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    body.desktop-polish-locked button:focus-visible,
-    body.desktop-polish-locked select:focus-visible,
-    body.desktop-polish-locked input:focus-visible,
-    body.desktop-polish-locked textarea:focus-visible,
-    body.desktop-polish-locked summary:focus-visible,
-    body.desktop-polish-locked [role="button"]:focus-visible {
-        outline: 2px solid rgba(29, 231, 255, 0.76);
-        outline-offset: 3px;
-        box-shadow: 0 0 0 4px rgba(29, 231, 255, 0.12);
-    }
-
-    body.desktop-polish-locked .debug-modal,
-    body.desktop-polish-locked .history-stats-card,
-    body.desktop-polish-locked .history-edit-card {
-        max-width: min(1180px, calc(100vw - 44px));
-    }
-
-    body.desktop-polish-locked .history-native-import-control,
-    body.desktop-polish-locked .history-panel-actions button,
-    body.desktop-polish-locked .debug-tools button,
-    body.desktop-polish-locked .input-actions button {
-        transform: translateZ(0);
-    }
-
-    body.desktop-polish-locked .history-native-import-control:hover,
-    body.desktop-polish-locked .history-panel-actions button:hover,
-    body.desktop-polish-locked .debug-tools button:hover,
-    body.desktop-polish-locked .input-actions button:hover {
-        filter: brightness(1.06);
-    }
-
-    body.desktop-polish-locked ::-webkit-scrollbar {
-        width: 12px;
-        height: 12px;
-    }
-
-    body.desktop-polish-locked ::-webkit-scrollbar-track {
-        background: rgba(3, 8, 18, 0.88);
-        border-radius: 999px;
-    }
-
-    body.desktop-polish-locked ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, rgba(29,231,255,.56), rgba(255,211,41,.38));
-        border: 3px solid rgba(3, 8, 18, 0.88);
-        border-radius: 999px;
+    html.desktop-polish .desktop-command-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }

@@ -39,9 +39,6 @@
         }());
     </script>
 
-    <script src="./src/ui/platformIsolationGuard.js"></script>
-    <script src="./src/ui/desktopPolishGuard.js"></script>
-
     <noscript>
         <link rel="stylesheet" href="./desktop.css">
     </noscript>
@@ -182,7 +179,7 @@
     </script>
 
 
-    <!-- v4.11a Desktop-Locked Control Recovery Stack -->
+    <!-- v4.10l Native Control Hardening -->
     <script id="towerBattleIntelNativeControlBackbone">
         (function () {
             "use strict";
@@ -554,6 +551,8 @@
         }());
     </script>
 
+        <script src="./src/ui/platformIsolationGuard.js"></script>
+        <script src="./src/ui/desktopPolishGuard.js"></script>
         <script src="./src/ui/universalDownloadBridge.js"></script>
         <script src="./src/ui/historySearchFocusGuard.js"></script>
     <script type="module" src="./app.js"></script>

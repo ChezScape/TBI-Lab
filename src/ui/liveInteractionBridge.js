@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * LIVE INTERACTION BRIDGE v4.11a
+ * LIVE INTERACTION BRIDGE v4.11a2
  * Browser-level safety bridge for visible controls.
  *
  * This is deliberately small and delegated. It catches real browser clicks,

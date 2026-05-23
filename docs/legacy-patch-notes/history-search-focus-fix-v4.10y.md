@@ -1,4 +1,4 @@
-# v4.11a History Search Focus Fix
+# v4.10y History Search Focus Fix
 
 ## Problem
 
@@ -34,7 +34,7 @@ TowerBattleIntelHistorySearchFocusGuard?.status()
 Expected:
 
 ```text
-v4.11a
+v4.10y
 bound: true
 inputExists: true
 ```

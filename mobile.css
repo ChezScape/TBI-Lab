@@ -8154,18 +8154,10 @@ details[open] > summary,
 }
 
 
-
 /* --------------------------------------------------
-   v4.11a1 Mobile Isolation Notice
-   Mobile is intentionally left functionally unchanged in v4.11a. It will be
-   repaired as its own pass in v4.11b so desktop and mobile do not keep
-   bleeding into each other.
+   v4.11a2 Mobile Isolation Notice
+   Mobile is intentionally not repaired in this desktop polish pass.
 -------------------------------------------------- */
 html[data-device-mode="desktop"] [data-device-only="mobile"] {
     display: none !important;
 }
-
-/* --------------------------------------------------
-   v4.11a1 Mobile left untouched
-   Mobile repair is reserved for the separate v4.11b pass.
--------------------------------------------------- */

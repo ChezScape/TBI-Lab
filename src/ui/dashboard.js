@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * TOWER BATTLE INTEL DASHBOARD v4.11a
+ * TOWER BATTLE INTEL DASHBOARD v4.11a2
  * Small orchestration layer only.
  */
 

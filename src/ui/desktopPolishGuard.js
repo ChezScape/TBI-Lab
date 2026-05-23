@@ -1,98 +1,74 @@
 "use strict";
 
 /**
- * DESKTOP POLISH GUARD v4.11a1
+ * DESKTOP POLISH GUARD v4.11a2
  *
- * Desktop-only visual/runtime helper for the mockup-locked desktop baseline.
- * It deliberately does not own actions, import/export, modals, history, or parsing.
- * Its job is to mark desktop polish state and expose safe layout diagnostics.
+ * Small runtime helper for the desktop-only polish pass.
+ * It does not route actions and does not touch mobile behaviour.
  */
 (function () {
-    const VERSION = "v4.11a1";
-    const MIN_DESKTOP_WIDTH = 800;
+    const VERSION = "v4.11a2";
+    const FLAG = "__TowerBattleIntelDesktopPolishGuardBound";
+    const DESKTOP_MIN_WIDTH = 800;
 
-    let bound = false;
-    let lastSnapshot = null;
+    let lastAudit = null;
 
-    function isDesktopMode() {
-        const mode = document.documentElement?.dataset?.deviceMode || window.TowerBattleIntelDeviceMode || "desktop";
-        return mode === "desktop";
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+
+    if (!window[FLAG]) {
+        window[FLAG] = true;
+        bind();
     }
+
+    installAPI();
 
     function bind() {
-        if (bound || typeof document === "undefined") return status();
-        bound = true;
+        markDesktopPolish();
+        document.addEventListener("DOMContentLoaded", markDesktopPolish, { once: true });
+        window.addEventListener("resize", debounce(markDesktopPolish, 160), { passive: true });
+        console.log("[Tower Battle Intel] Desktop polish guard bound", VERSION);
+    }
 
-        applyDesktopPolishFlags();
+    function markDesktopPolish() {
+        const root = document.documentElement;
+        const isDesktop = String(root.getAttribute("data-device-mode") || "desktop") === "desktop" && (window.innerWidth || 1024) >= DESKTOP_MIN_WIDTH;
+        root.classList.toggle("desktop-polish", isDesktop);
+        root.setAttribute("data-desktop-polish", isDesktop ? "true" : "false");
+        auditOverflow();
+    }
 
-        let timer = null;
-        const schedule = () => {
-            clearTimeout(timer);
-            timer = window.setTimeout(applyDesktopPolishFlags, 120);
+    function auditOverflow() {
+        const width = window.innerWidth || document.documentElement.clientWidth || 0;
+        const bodyWidth = document.body?.scrollWidth || width;
+        lastAudit = {
+            at: new Date().toISOString(),
+            viewportWidth: width,
+            bodyScrollWidth: bodyWidth,
+            horizontalOverflow: bodyWidth > width + 2,
+            deviceMode: document.documentElement.getAttribute("data-device-mode") || "unknown"
         };
-
-        window.addEventListener("resize", schedule, { passive: true });
-        window.addEventListener("orientationchange", schedule, { passive: true });
-        document.addEventListener("DOMContentLoaded", applyDesktopPolishFlags, { once: true });
-
-        window.TowerBattleIntelDesktopPolishGuard = Object.freeze({
-            status,
-            snapshot,
-            apply: applyDesktopPolishFlags
-        });
-
-        console.log(`[Tower Battle Intel] Desktop polish guard bound ${VERSION}`);
-        return status();
+        document.documentElement.dataset.desktopOverflow = lastAudit.horizontalOverflow ? "true" : "false";
+        return lastAudit;
     }
 
-    function applyDesktopPolishFlags() {
-        const desktop = isDesktopMode();
-        const root = document.documentElement;
-        const body = document.body;
-
-        root.classList.toggle("desktop-polish-locked", desktop);
-        root.setAttribute("data-desktop-polish-version", VERSION);
-        root.setAttribute("data-desktop-min-width", String(MIN_DESKTOP_WIDTH));
-
-        if (body) {
-            body.classList.toggle("desktop-polish-locked", desktop);
-            body.setAttribute("data-desktop-polish-version", VERSION);
-        }
-
-        lastSnapshot = snapshot();
-        return lastSnapshot;
-    }
-
-    function snapshot() {
-        const root = document.documentElement;
-        const body = document.body;
-        const app = document.getElementById("app");
-        const viewportWidth = window.innerWidth || root?.clientWidth || 0;
-        const viewportHeight = window.innerHeight || root?.clientHeight || 0;
-
-        return {
-            version: VERSION,
-            mode: root?.dataset?.deviceMode || window.TowerBattleIntelDeviceMode || null,
-            desktop: isDesktopMode(),
-            viewportWidth,
-            viewportHeight,
-            documentScrollWidth: root?.scrollWidth || 0,
-            bodyScrollWidth: body?.scrollWidth || 0,
-            appScrollWidth: app?.scrollWidth || 0,
-            horizontalOverflow: Boolean(root && root.scrollWidth > viewportWidth + 2),
-            mobileOnlyVisible: Array.from(document.querySelectorAll("[data-device-only='mobile']")).filter(el => !el.hidden).length,
-            desktopOnlyVisible: Array.from(document.querySelectorAll("[data-device-only='desktop']")).filter(el => !el.hidden).length
+    function debounce(fn, delay) {
+        let timer = null;
+        return () => {
+            clearTimeout(timer);
+            timer = window.setTimeout(fn, delay);
         };
     }
 
     function status() {
         return {
-            desktopPolishGuardBound: bound,
+            desktopPolishGuardBound: Boolean(window[FLAG]),
             desktopPolishGuardVersion: VERSION,
-            minDesktopWidth: MIN_DESKTOP_WIDTH,
-            snapshot: lastSnapshot || snapshot()
+            desktopPolishActive: document.documentElement.classList.contains("desktop-polish"),
+            lastAudit: lastAudit || auditOverflow()
         };
     }
 
-    bind();
+    function installAPI() {
+        window.TowerBattleIntelDesktopPolishGuard = Object.freeze({ status, auditOverflow, markDesktopPolish });
+    }
 }());

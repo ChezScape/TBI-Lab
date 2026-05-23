@@ -1,21 +1,16 @@
 "use strict";
 
 /**
- * PLATFORM ISOLATION GUARD v4.11a1
+ * PLATFORM ISOLATION GUARD v4.11a2
  *
  * Desktop-first platform lock for the v4.11 cleanup line.
  *
- * Goal:
- * - keep the v4.11a1 mockup look intact
- * - stop mobile-only controls leaking into desktop
- * - stop desktop assumptions leaking into mobile detection
- * - expose a tiny runtime status helper for browser checks
- *
- * This guard does not own business logic, reports, history, parsing, or downloads.
+ * This guard keeps the current desktop mockup as the protected baseline and
+ * prevents mobile-only controls from leaking into desktop while mobile is
+ * repaired separately.
  */
-
 (function () {
-    const VERSION = "v4.11a1";
+    const VERSION = "v4.11a2";
     const DESKTOP_MIN_WIDTH = 800;
     const TOUCH_MOBILE_LIMIT = 1024;
     const STYLESHEET_ID = "towerBattleIntelStylesheet";
@@ -28,11 +23,8 @@
     }
 
     function hasCoarsePointer() {
-        try {
-            return Boolean(window.matchMedia?.("(pointer: coarse)")?.matches);
-        } catch {
-            return false;
-        }
+        try { return Boolean(window.matchMedia?.("(pointer: coarse)")?.matches); }
+        catch { return false; }
     }
 
     function hasMobileUserAgent() {
@@ -52,7 +44,6 @@
 
     function applyMode(mode = resolveMode()) {
         lastMode = mode;
-
         const root = document.documentElement;
         const body = document.body;
         const coarse = hasCoarsePointer();
@@ -79,23 +70,19 @@
 
         syncStylesheet(href);
         syncDeviceOnly(mode);
-
         window.TowerBattleIntelDeviceMode = mode;
         window.TowerBattleIntelPlatformMode = mode;
-
         return mode;
     }
 
     function syncStylesheet(href) {
         let link = document.getElementById(STYLESHEET_ID);
-
         if (!link) {
             link = document.createElement("link");
             link.id = STYLESHEET_ID;
             link.rel = "stylesheet";
             document.head?.appendChild(link);
         }
-
         if (!String(link.getAttribute("href") || "").endsWith(href.replace("./", ""))) {
             link.setAttribute("href", href);
         }
@@ -112,7 +99,6 @@
     function bind() {
         if (bound || typeof document === "undefined") return status();
         bound = true;
-
         applyMode();
 
         let resizeTimer = null;
@@ -125,12 +111,7 @@
         window.addEventListener("orientationchange", () => schedule(220), { passive: true });
         document.addEventListener("DOMContentLoaded", () => applyMode(), { once: true });
 
-        window.TowerBattleIntelPlatformIsolationGuard = Object.freeze({
-            status,
-            applyMode,
-            resolveMode
-        });
-
+        window.TowerBattleIntelPlatformIsolationGuard = Object.freeze({ status, applyMode, resolveMode });
         console.log(`[Tower Battle Intel] Platform isolation guard bound ${VERSION}`);
         return status();
     }
