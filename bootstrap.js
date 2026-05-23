@@ -4,7 +4,7 @@ import {
     bindNativeControlGuard
 } from "./src/ui/nativeControlGuard.js";
 /**
- * BOOTSTRAP v4.11a3
+ * BOOTSTRAP v4.11a4
  * Root startup flow for Tower Battle Intel.
  *
  * Owns only application startup:

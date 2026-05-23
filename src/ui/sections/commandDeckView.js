@@ -7,31 +7,31 @@ export function buildCommandDeckView(state = {}) {
     const activeBuild = state.ui?.buildStyle || "unknown";
 
     return `
-        <div class="tbi-command-view desktop-command-polish">
+        <div class="tbi-command-view desktop-command-polish desktop-command-dedup">
             <section class="tbi-card tbi-command-card tbi-command-flow">
                 <div class="tbi-card-heading compact-heading">
                     <div>
                         <h2>Command Deck</h2>
-                        <p>Desktop report workflow. The Battle Report Input console now opens below this deck, keeping the header and nav in a normal place.</p>
+                        <p>Desktop command hub. Use these shortcuts for navigation, import, export, and diagnostics. The Battle Report Input console stays below this deck.</p>
                     </div>
                     <span class="tbi-command-mode-pill">Desktop</span>
                 </div>
 
-                <div class="tbi-command-steps">
-                    ${commandStep("1", "Paste report", "Use the Battle Report Input console below this deck.")}
-                    ${commandStep("2", "Choose build", `Current build: ${formatBuild(activeBuild)}.`)}
-                    ${commandStep("3", "Save or clear", "Save to History, clear the input, or reset loaded runs.")}
+                <div class="tbi-command-steps command-shortcut-steps">
+                    ${commandStep("1", "Review data", "Check loaded runs and current history count.")}
+                    ${commandStep("2", "Manage history", "Open History, import JSON, or export saved runs.")}
+                    ${commandStep("3", "Paste below", "Use the Battle Report Input console underneath for Save, Build, Clear Input, and Clear Runs.")}
                 </div>
 
-                <div class="tbi-command-actions desktop-command-actions" aria-label="Command deck actions">
-                    <button type="button" data-ui-action="save-report">Save Report</button>
-                    <button type="button" data-ui-action="clear-input">Clear Input</button>
-                    <button type="button" data-ui-action="clear-runs">Clear Runs</button>
+                <div class="tbi-command-actions desktop-command-actions desktop-command-shortcuts" aria-label="Command deck shortcuts">
                     <button type="button" data-ui-action="open-history">Open History</button>
+                    <button type="button" data-ui-action="import-history" data-history-import-trigger="true" data-import-history-button="true">Import History</button>
+                    <button type="button" data-ui-action="export-history" data-export-history="true">Export History</button>
+                    <button type="button" data-ui-action="toggle-debug">Open Debug</button>
                 </div>
 
                 <div class="tbi-command-note">
-                    Import and export live in History. Debug exports live in the diagnostics panel.
+                    Input actions are not duplicated here. Save Report, Build, Clear Input, and Clear Runs live in the Battle Report Input console below.
                 </div>
             </section>
 
@@ -74,7 +74,7 @@ export function buildMoreView(state = {}) {
                 <h2>More</h2>
                 ${moreButton("history", "History", `${state.history.length} saved runs`)}
                 ${moreButton("anomalies", "Anomalies", `${state.anomalies.length} active`)}
-                ${moreButton("command", "Command Deck", "Paste, save, clear, export")}
+                ${moreButton("command", "Command Deck", "History, import, export, debug")}
                 ${moreButton("settings", "Settings", "Theme and diagnostics")}
             </section>
         </div>

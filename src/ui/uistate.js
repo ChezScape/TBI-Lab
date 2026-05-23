@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * UI STATE STORE v4.11a3
+ * UI STATE STORE v4.11a4
  * Browser-only UI choices live here and mirror into global state.
  */
 

@@ -1874,7 +1874,7 @@ details[open] > summary,
 
 
 /* --------------------------------------------------
-   v4.11a3 Desktop Polish: History / Systems / Command Deck
+   v4.11a4 Desktop Polish: History / Systems / Command Deck
    Desktop-only visual tightening. Mobile repair remains reserved for v4.11b.
 -------------------------------------------------- */
 html[data-device-mode="desktop"] [data-device-only="mobile"],
@@ -2174,7 +2174,7 @@ html.desktop-polish .desktop-command-status .tbi-mini-stat {
 }
 
 /* --------------------------------------------------
-   v4.11a3 Command Deck Input Placement
+   v4.11a4 Command Deck Input Placement
    Desktop only: keep the header/nav and Command Deck panel first, then show the
    native Battle Report Input console underneath. Mobile repair remains separate.
 -------------------------------------------------- */
@@ -2201,4 +2201,32 @@ html[data-device-mode="desktop"] #debug {
 html[data-device-mode="desktop"] body[data-dashboard-tab="command"] .tbi-command-note {
     border-color: rgba(29,231,255,.24);
     color: var(--soft);
+}
+
+/* --------------------------------------------------
+   v4.11a4 Command Deck Dedup
+   Desktop only: top Command Deck now uses useful shortcuts only. The duplicate
+   Save/Clear controls remain only in the Battle Report Input console below.
+-------------------------------------------------- */
+html.desktop-polish .desktop-command-dedup .desktop-command-actions,
+html[data-device-mode="desktop"] .desktop-command-dedup .desktop-command-actions {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+html.desktop-polish .desktop-command-shortcuts button,
+html[data-device-mode="desktop"] .desktop-command-shortcuts button {
+    min-height: 42px;
+    border-color: rgba(29,231,255,.34);
+    background: linear-gradient(180deg, rgba(29,231,255,.10), rgba(1,7,17,.74));
+}
+
+html.desktop-polish .desktop-command-shortcuts button:hover,
+html[data-device-mode="desktop"] .desktop-command-shortcuts button:hover {
+    border-color: rgba(29,231,255,.72);
+    box-shadow: 0 0 18px rgba(29,231,255,.18);
+}
+
+html.desktop-polish .command-shortcut-steps .tbi-command-step,
+html[data-device-mode="desktop"] .command-shortcut-steps .tbi-command-step {
+    min-height: 66px;
 }
